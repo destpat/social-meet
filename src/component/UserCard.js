@@ -10,9 +10,9 @@ export class UserCard extends React.Component {
       // implemented with Text and Button as children
       <TouchableHighlight>
         <View style={styles.cardContainer}>
-          <Image source={{uri: 'https://i.pinimg.com/originals/43/87/76/4387767f4547ac8c09ec46580838e8ab.jpg'}}
+          <Image source={{uri: this.props.user.picture.large}}
                  style={cardSize}/>
-          <Text style={styles.cardText}> Marine (92) </Text>
+          <Text>{this.props.user.name.first} {this.props.user.location.postcode} </Text>
        </View>
      </TouchableHighlight>
     );
@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
     width: cardSize.width,
     alignItems: 'center',
     backgroundColor: '#ffffff',
-    paddingBottom: 5
+    paddingBottom: 5,
+    margin: 5
   },
   cardText: {
     textAlign: 'center',
