@@ -8,11 +8,12 @@ export class UserCard extends React.Component {
   render() {
     return (
       // implemented with Text and Button as children
-      <TouchableHighlight>
+      <TouchableHighlight
+        onPress={() => this.props.navigation.navigate('UserProfile', { user: this.props.user })}>
         <View style={styles.cardContainer}>
           <Image source={{uri: this.props.user.picture.large}}
                  style={cardSize}/>
-          <Text>{this.props.user.name.first} {this.props.user.location.postcode} </Text>
+          <Text>{this.props.user.name.first} {this.props.user.location.postcode}</Text>
        </View>
      </TouchableHighlight>
     );

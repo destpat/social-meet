@@ -10,7 +10,7 @@ export default class NewUser extends React.Component {
         <FlatList
           numColumns={2}
           data={fakeUser.results}
-          renderItem={({item}) => <UserCard user={item}/>}
+          renderItem={({item}) => <UserCard user={item} navigation={this.props.navigation}/>}
         />
       </View>
     );
