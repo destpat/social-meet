@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, TouchableHighlight } from 'react-native';
-import  getCardSize  from '../utils/GetCardSize';
+import  getCardSize  from '../utils/getCardSize';
 
 const cardSize = getCardSize();
 
@@ -14,7 +14,7 @@ export class UserCard extends React.Component {
           <Image source={{uri: this.props.user.picture.large}}
                  style={cardSize}/>
           <Text>{this.props.user.name.first} {this.props.user.location.postcode}</Text>
-       </View>
+        </View>
      </TouchableHighlight>
     );
   }

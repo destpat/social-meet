@@ -1,12 +1,12 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, ScrollView, Image } from 'react-native';
 import { Tile, List, ListItem } from 'react-native-elements'
 
 export default class UserProfile extends React.Component {
   render() {
     const {picture, gender, email, location, name, nat} = this.props.navigation.state.params.user;
     return (
-      <View>
+      <ScrollView>
         <Tile
            imageSrc={{uri : picture.large}}
            title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
@@ -40,7 +40,7 @@ export default class UserProfile extends React.Component {
             rightTitle={nat}
           />
         </List>
-      </View>
+      </ScrollView>
     );
   }
 }
