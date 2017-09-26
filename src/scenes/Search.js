@@ -92,6 +92,7 @@ export default class Search extends React.Component {
 
     return (
         <KeyboardAwareScrollView style={searchStyle.constainer}>
+
         {/* Modal */}
         <Modal
           animationType="slide"
@@ -157,7 +158,6 @@ export default class Search extends React.Component {
           </View>
 
           {/* Eyes color Field */}
-
           <TouchableHighlight onPress={() => {
             this.setModalVisible('eyesColor')
           }}>
@@ -175,7 +175,8 @@ export default class Search extends React.Component {
           <FormLabel>Yo</FormLabel>
           <FormInput/>
 
-          <Button buttonStyle={searchStyle.button}
+          <Button onPress={() => this.props.navigation.navigate('SearchResult')}
+                  buttonStyle={searchStyle.button}
                   icon={{name: 'check'}}
                   backgroundColor='#3498db'
                   title='Search' />

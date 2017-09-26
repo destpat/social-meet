@@ -6,6 +6,7 @@ import MyProfile from '../scenes/MyProfile';
 import NewUser from '../scenes/NewUser';
 import Search from '../scenes/Search';
 import UserProfile from '../scenes/UserProfile';
+import SearchResult from '../scenes/SearchResult';
 
 export const Tabs = TabNavigator({
   NewUser: {
@@ -34,6 +35,18 @@ export const Tabs = TabNavigator({
         navigationOptions: {
           headerTitle: 'Search'
         }
+      },
+      SearchResult: {
+        screen: SearchResult,
+        navigationOptions: {
+          headerTitle: 'Search result'
+        }
+      },
+      UserProfile: {
+        screen: UserProfile,
+        navigationOptions: ({navigation}) => ({
+          headerTitle: `${navigation.state.params.user.name.first} ${navigation.state.params.user.name.last}`,
+        }),
       }
     }),
     navigationOptions: {
