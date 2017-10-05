@@ -1,16 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, KeyboardAvoidingView  } from 'react-native';
+import { FormLabel, FormInput, Button } from 'react-native-elements'
 import { Tabs } from './src/config/router';
+import  Login  from './src/scenes/Login';
+
+const LOGIN = false;
 
 export default class App extends React.Component {
   render() {
-    return <Tabs />;
+    if (LOGIN) {
+      return <Tabs />
+    } else {
+      return <Login />
+    }
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ecf0f1'
-  },
-});

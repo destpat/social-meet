@@ -19,11 +19,13 @@ export default class UserProfile extends React.Component {
             title='Gender'
             rightTitle={gender}
           />
+          
           <ListItem
             hideChevron
             title='Email'
             rightTitle={email}
           />
+
           <ListItem
             hideChevron
             title='Location'

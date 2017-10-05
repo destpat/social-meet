@@ -9,6 +9,7 @@ import UserProfile from '../scenes/UserProfile';
 import SearchResult from '../scenes/SearchResult';
 
 export const Tabs = TabNavigator({
+
   NewUser: {
     screen: StackNavigator({
       NewUser: {
@@ -28,6 +29,7 @@ export const Tabs = TabNavigator({
       tabBarLabel: 'Nouveauté',
     }
   },
+
   Search: {
     screen: StackNavigator({
       Search: {
