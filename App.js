@@ -4,14 +4,23 @@ import { FormLabel, FormInput, Button } from 'react-native-elements'
 import { Tabs } from './src/config/router';
 import  Login  from './src/scenes/Login';
 
-const LOGIN = false;
-
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      login: false
+    }
+  }
+
+  setLogin(login) {
+    this.setState({login: login});
+  }
+
   render() {
-    if (LOGIN) {
+    if (this.state.login) {
       return <Tabs />
     } else {
-      return <Login />
+      return <Login isLogged={this.setLogin.bind(this)}/>
     }
   }
 }
