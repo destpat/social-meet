@@ -18,7 +18,14 @@ const loginStyle = StyleSheet.create({
     marginTop: 10,
     backgroundColor: '#cc1e1d'
   },
-  input:{
+  input: {
+    color: '#fff'
+  },
+  errorMessage: {
+    color: '#fff'
+  },
+  register: {
+    marginTop: 30,
     color: '#fff'
   }
 });

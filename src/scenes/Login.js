@@ -1,23 +1,56 @@
 import React from 'react';
-import { Text, View, KeyboardAvoidingView, StyleSheet  } from 'react-native';
-import { FormLabel, FormInput, Button } from 'react-native-elements'
+import getAutorization from '../utils/getAuthorization.js'
+
+import { Text, View, KeyboardAvoidingView, StyleSheet } from 'react-native';
+import { FormLabel, FormInput, Button, FormValidationMessage } from 'react-native-elements'
 import loginStyle from '../style/loginStyle'
 
 export default class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      errorMessage: ''
+    }
+  }
+
+  errorMessage(errorMessage){
+    this.setState({ errorMessage : errorMessage });
+  }
+
   render() {
     return (
       <KeyboardAvoidingView behavior='padding' style={loginStyle.container}>
         <Text style={loginStyle.title}>Curly</Text>
         <View>
+
           <FormLabel labelStyle={loginStyle.input}>Email</FormLabel>
-          <FormInput inputStyle={loginStyle.input}/>
+          <FormInput inputStyle={loginStyle.input}
+                     onChangeText={(email) => this.setState({email})}/>
+
           <FormLabel labelStyle={loginStyle.input}>Password</FormLabel>
-          <FormInput inputStyle={loginStyle.input} secureTextEntry/>
+          <FormInput inputStyle={loginStyle.input}
+                     secureTextEntry
+                     onChangeText={(password) => this.setState({password})}/>
+          {
+            this.state.errorMessage !== '' &&
+            <FormValidationMessage labelStyle={loginStyle.errorMessage}>
+              {this.state.errorMessage}
+            </FormValidationMessage>
+          }
         </View>
         <Button iconLeft
                 buttonStyle={loginStyle.button}
                 title='LOGIN'
-                onPress={()=>{console.log('click on button');}}/>
+                onPress={() => {
+                  getAutorization(this.state.email, this.state.password).then((res) => {
+                    this.props.isLogged(res.data.auth);
+                  }, (err) => {
+                    this.errorMessage(err.response.data.message);
+                  })
+                }}/>
+       <Text style={loginStyle.register}>Register now</Text>
       </KeyboardAvoidingView>
     );
   }

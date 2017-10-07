@@ -46,13 +46,13 @@ export default class Search extends React.Component {
   }
 
   setOrigin(index) {
-    const origin = [...this.state.origin];
+    let origin = [...this.state.origin];
     origin[index].checked = !origin[index].checked;
     this.setState({ origin });
   }
 
   setEyesColor(index) {
-    const eyesColor = [...this.state.eyesColor];
+    let eyesColor = [...this.state.eyesColor];
     eyesColor[index].checked = !eyesColor[index].checked;
     this.setState({ eyesColor });
   }
