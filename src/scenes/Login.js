@@ -1,7 +1,7 @@
 import React from 'react';
 import getAutorization from '../utils/getAuthorization.js'
 
-import { Text, View, KeyboardAvoidingView, StyleSheet, AsyncStorage } from 'react-native';
+import { Text, View, KeyboardAvoidingView, StyleSheet, AsyncStorage, TouchableHighlight} from 'react-native';
 import { FormLabel, FormInput, Button, FormValidationMessage } from 'react-native-elements'
 import loginStyle from '../style/loginStyle'
 
@@ -19,6 +19,10 @@ export default class Login extends React.Component {
 
   errorMessage(errorMessage){
     this.setState({errorMessage});
+  }
+
+  resetErrorMessage(){
+    this.setState({errorMessage : ''})
   }
 
   render() {
@@ -46,14 +50,17 @@ export default class Login extends React.Component {
                 buttonStyle={loginStyle.button}
                 title='LOGIN'
                 onPress={() => {
+                  this.resetErrorMessage();
                   getAutorization(this.state.email, this.state.password).then((res) => {
-                  this.props.isLogged(res.data.auth);
+                  this.props.screenProps(res.data.auth);
                   storeToken(res.data.token);
                   }, (err) => {
                     this.errorMessage(err.response.data.message);
                   })
                 }}/>
-       <Text style={loginStyle.register}>Register now</Text>
+        <TouchableHighlight onPress={() => this.props.navigation.navigate('SingUp')}>
+          <Text style={loginStyle.register}>Register now</Text>
+        </TouchableHighlight>
       </KeyboardAvoidingView>
     );
   }

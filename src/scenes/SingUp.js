@@ -1,51 +1,41 @@
 import React from 'react';
-import { Text, ScrollView, Button, View } from 'react-native';
-import { FormLabel, FormInput } from 'react-native-elements'
+import { Text, KeyboardAvoidingView, View } from 'react-native';
+import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
+import createUser from '../utils/createUser';
 
 // @Todo custom style
 export default class SingUp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      snapchat: '',
+      instagram: '',
+      password: '',
+      confirmedPassword: ''
+    };
+  }
   render() {
-    return (
-      <ScrollView behavior='padding'>
-        <FormLabel>e-mail</FormLabel>
-        <FormInput/>
+    let formValid = false;
 
-        <FormLabel>user name</FormLabel>
-        <FormInput/>
+    return (
+      <KeyboardAvoidingView>
+
+        <FormLabel>e-mail</FormLabel>
+        <FormInput onChangeText={(email) => this.setState({email})}/>
 
         <FormLabel>Snapchat</FormLabel>
-        <FormInput/>
+        <FormInput onChangeText={(snapchat) => this.setState({snapchat})}/>
 
         <FormLabel>Instagram</FormLabel>
-        <FormInput/>
-
-        <FormLabel>Sexe</FormLabel>
-        <FormInput/>
-
-        <FormLabel>City</FormLabel>
-        <FormInput/>
-
-        <FormLabel>Origin</FormLabel>
-        <FormInput/>
-
-        <FormLabel>Eyes colors</FormLabel>
-        <FormInput/>
-
-        <FormLabel>Hair color</FormLabel>
-        <FormInput/>
-
-        <FormLabel>Hair color</FormLabel>
-        <FormInput/>
-
-
-        <FormLabel>Birth date</FormLabel>
-        <FormInput/>
+        <FormInput onChangeText={(instagram) => this.setState({instagram})}/>
 
         <FormLabel>Password</FormLabel>
-        <FormInput/>
+        <FormInput onChangeText={(password) => this.setState({password})}/>
 
         <FormLabel>Confirmed Password</FormLabel>
-        <FormInput/>
+        <FormInput onChangeText={(confirmedPassword) => this.setState({confirmedPassword})}/>
+
         <Button
            medium
            iconLeft
@@ -53,9 +43,12 @@ export default class SingUp extends React.Component {
            backgroundColor='#3498db'
            title='VALIDATE'
            onPress={() => {
-             console.log('add function for send data to server');
+             createUser(this.state).then((auth) => {
+              this.props.screenProps(auth);
+             });
            }}/>
-      </ScrollView>
+
+      </KeyboardAvoidingView>
     );
   }
 }

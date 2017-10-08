@@ -4,6 +4,8 @@ import { FormLabel, FormInput, Button } from 'react-native-elements'
 import { Tabs } from './src/config/router';
 import  Login  from './src/scenes/Login';
 
+import  { Register }  from './src/config/router';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,15 +18,11 @@ export default class App extends React.Component {
     this.setState({login: login});
   }
 
-  setToken(toke) {
-    this.setState({token: token});
-  }
-
   render() {
     if (this.state.login) {
       return <Tabs />
     } else {
-      return <Login isLogged={this.setLogin.bind(this)}/>
+      return <Register screenProps={this.setLogin.bind(this)}/>
     }
   }
 }

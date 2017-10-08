@@ -8,6 +8,10 @@ import Search from '../scenes/Search';
 import UserProfile from '../scenes/UserProfile';
 import SearchResult from '../scenes/SearchResult';
 
+import Login from '../scenes/Login';
+import SingUp from '../scenes/SingUp';
+
+
 export const Tabs = TabNavigator({
   NewUser: {
     screen: StackNavigator({
@@ -69,3 +73,12 @@ export const Tabs = TabNavigator({
 }, {
   tabBarPosition: 'bottom',
 });
+
+export const Register = StackNavigator({
+  Login: {
+    screen: Login,
+  },
+  SingUp: {
+    screen: SingUp
+  }
+})
