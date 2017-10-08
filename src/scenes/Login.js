@@ -1,7 +1,7 @@
 import React from 'react';
 import getAutorization from '../utils/getAuthorization.js'
 
-import { Text, View, KeyboardAvoidingView, StyleSheet, AsyncStorage, TouchableHighlight} from 'react-native';
+import { Text, View, KeyboardAvoidingView, TouchableHighlight} from 'react-native';
 import { FormLabel, FormInput, Button, FormValidationMessage } from 'react-native-elements'
 import loginStyle from '../style/loginStyle'
 

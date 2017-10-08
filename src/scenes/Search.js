@@ -1,8 +1,6 @@
 import React from 'react';
-import { Text, ScrollView, View, Picker, Modal, TouchableHighlight, FlatList  } from 'react-native';
+import { Text, View, Modal, TouchableHighlight, FlatList  } from 'react-native';
 import { FormLabel, FormInput, Button, Icon, CheckBox, Slider } from 'react-native-elements';
-import { Dropdown } from 'react-native-material-dropdown';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
 import { ModalCheckbox } from '../component/ModalCheckbox';
 import  searchStyle from '../style/search'
 
@@ -91,7 +89,7 @@ export default class Search extends React.Component {
     }
 
     return (
-        <KeyboardAwareScrollView style={searchStyle.constainer}>
+        <View style={searchStyle.constainer}>
 
         {/* Modal */}
         <Modal
@@ -180,7 +178,7 @@ export default class Search extends React.Component {
                   icon={{name: 'check'}}
                   backgroundColor='#3498db'
                   title='Search' />
-        </KeyboardAwareScrollView>
+        </View>
     );
   }
 }

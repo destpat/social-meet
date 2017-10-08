@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { fakeUser } from '../data/fakeUser';
 import { UserCard } from '../component/UserCard';
 

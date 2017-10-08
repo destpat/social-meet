@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, KeyboardAvoidingView, View } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
+import { KeyboardAvoidingView } from 'react-native';
+import { FormLabel, FormInput, Button } from 'react-native-elements';
 import createUser from '../utils/createUser';
 
 // @Todo custom style

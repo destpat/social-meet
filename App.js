@@ -1,10 +1,7 @@
 import React from 'react';
-import { Text, View, KeyboardAvoidingView  } from 'react-native';
+import { Text, View, KeyboardAvoidingView } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements'
-import { Tabs } from './src/config/router';
-import  Login  from './src/scenes/Login';
-
-import  { Register }  from './src/config/router';
+import { Tabs, Register } from './src/config/router';
 
 export default class App extends React.Component {
   constructor(props) {

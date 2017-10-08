@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, ScrollView, Image } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Tile, List, ListItem } from 'react-native-elements'
 
 export default class UserProfile extends React.Component {
@@ -19,7 +19,7 @@ export default class UserProfile extends React.Component {
             title='Gender'
             rightTitle={gender}
           />
-          
+
           <ListItem
             hideChevron
             title='Email'
