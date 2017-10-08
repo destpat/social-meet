@@ -16,6 +16,10 @@ export default class App extends React.Component {
     this.setState({login: login});
   }
 
+  setToken(toke) {
+    this.setState({token: token});
+  }
+
   render() {
     if (this.state.login) {
       return <Tabs />

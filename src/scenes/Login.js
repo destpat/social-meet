@@ -1,9 +1,11 @@
 import React from 'react';
 import getAutorization from '../utils/getAuthorization.js'
 
-import { Text, View, KeyboardAvoidingView, StyleSheet } from 'react-native';
+import { Text, View, KeyboardAvoidingView, StyleSheet, AsyncStorage } from 'react-native';
 import { FormLabel, FormInput, Button, FormValidationMessage } from 'react-native-elements'
 import loginStyle from '../style/loginStyle'
+
+import storeToken from '../utils/storeToken'
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -16,7 +18,7 @@ export default class Login extends React.Component {
   }
 
   errorMessage(errorMessage){
-    this.setState({ errorMessage : errorMessage });
+    this.setState({errorMessage});
   }
 
   render() {
@@ -45,7 +47,8 @@ export default class Login extends React.Component {
                 title='LOGIN'
                 onPress={() => {
                   getAutorization(this.state.email, this.state.password).then((res) => {
-                    this.props.isLogged(res.data.auth);
+                  this.props.isLogged(res.data.auth);
+                  storeToken(res.data.token);
                   }, (err) => {
                     this.errorMessage(err.response.data.message);
                   })
