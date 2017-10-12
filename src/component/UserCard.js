@@ -9,9 +9,9 @@ export class UserCard extends React.Component {
       <TouchableHighlight
         onPress={() => this.props.navigation.navigate('UserProfile', { user: this.props.user })}>
         <View style={userCardStyle.cardContainer}>
-          <Image source={{uri: this.props.user.picture.large}}
+          <Image source={{uri: this.props.user.photo}}
                  style={userCardStyle.image}/>
-          <Text>{this.props.user.name.first} {this.props.user.location.postcode}</Text>
+          <Text>{this.props.user.snapchat}</Text>
         </View>
      </TouchableHighlight>
     );
