@@ -2,9 +2,9 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import { fakeUser } from '../data/fakeUser';
 import { UserCard } from '../component/UserCard';
-import getNewUser from '../utils/getNewUser'
+import getNewUsers from '../utils/getNewUsers'
 
-export default class NewUser extends React.Component {
+export default class newUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ export default class NewUser extends React.Component {
     }
   }
   componentDidMount() {
-    getNewUser().then((data) => {
+    getNewUsers().then((data) => {
       this.setState({newUser: data});
     })
   }
