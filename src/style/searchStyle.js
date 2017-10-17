@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 const searchStyle = StyleSheet.create({
-    constainer: {
+    container: {
       marginBottom: 20
     },
     slider: {
