@@ -2,7 +2,9 @@ import React from 'react';
 import { Text, View, Modal, TouchableHighlight, FlatList  } from 'react-native';
 import { FormLabel, FormInput, Button, Icon, CheckBox, Slider } from 'react-native-elements';
 import { ModalCheckbox } from '../component/ModalCheckbox';
-import  searchStyle from '../style/search'
+import  searchStyle from '../style/search';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+
 
 export default class Search extends React.Component {
   constructor(props) {

@@ -1,7 +1,8 @@
 import axiosAutorizationHeader from '../config/interceptor';
+import config from '../../config.json'
 
 export default function getNewUsers() {
-  return axiosAutorizationHeader.get('http://192.168.1.13:3000/users/newer').then((res) => {
+  return axiosAutorizationHeader.get(`${config.DEV.BASE_URL}/users/newer`).then((res) => {
     return res.data;
   }, (err) => {
     console.error(err.response.data.message);
