@@ -3,6 +3,7 @@ import { Text, View, Modal, TouchableHighlight, FlatList  } from 'react-native';
 import { FormLabel, FormInput, Button, Icon, CheckBox, Slider } from 'react-native-elements';
 import { ModalCheckbox } from '../component/ModalCheckbox';
 import  searchStyle from '../style/searchStyle';
+import getPosition from '../utils/getPosition';
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class Search extends React.Component {
       womanCheckbox: false,
       modalVisible: false,
       modalType: 'eyesColor',
+      from: '',
       origin: [
         {
           key: 'Caraibe',
@@ -68,6 +70,10 @@ export default class Search extends React.Component {
     this.setState({manCheckbox: !this.state.manCheckbox});
   }
 
+  setFrom(position) {
+    this.setState({from: position});
+  }
+
   render() {
 
     let modalContent;
@@ -95,13 +101,25 @@ export default class Search extends React.Component {
         <Modal
           animationType="slide"
           visible={this.state.modalVisible}
-          onRequestClose={() => {this.setModalVisible();}}>
+          onRequestClose={() => {this.setModalVisible()}}>
          { modalContent }
         </Modal>
 
           {/* From field */}
-          <FormLabel>From</FormLabel>
-          <FormInput/>
+
+            <FormLabel>From</FormLabel>
+            <FormInput value={this.state.from}
+                       onChangeText={(from) => this.setState({from})}
+             />
+            <Icon
+              name='location-arrow'
+              type='font-awesome'
+              color='blue'
+              onPress={ async () => {
+                this.setFrom(await getPosition())
+              }}
+            />
+
 
           {/* Radius field */}
           <FormLabel>Within a radius of</FormLabel>
