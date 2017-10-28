@@ -1,44 +1,26 @@
 import axios from 'axios';
+import { Constants, Location, Permissions } from 'expo';
 import querystring from 'querystring';
 import config from '../../config.json'
 
 const getPosition = async () => {
-  // Api link
-  let googleApi = 'https://maps.googleapis.com/maps/api/geocode/json?';
-  // Promise containe position longitude and latitude
-  let position = new Promise ((resolve, reject) => {
-  navigator.geolocation.getCurrentPosition(
-    // Sucess callback
-    (position) => {
-      let { latitude, longitude } = position.coords;
-      let queryParams = {
-        latlng: `${latitude}, ${longitude}`,
-        key: config.DEV.GOOGLE_API_KEY,
-        result_type: 'locality'
-      }
-      resolve(queryParams);
-    },
-    // Error callback
-    (error) => {
-      reject(`Error when getCurrentPosition : ${error}`);
-    }, {  enableHighAccuracy: true,
-          timeout: 2000,
-          maximumAge: 0
-        }
-      );
-    });
-
-  try {
-    // get queryParams from position resolve
-    let queryParams = await position;
-    let city = await axios.get(googleApi + querystring.stringify(queryParams));
-    /* Return only the short name of city
-    * more information https://developers.google.com/maps/documentation/geocoding/intro?hl=en
-    **/
-    return city.data.results[0].address_components[0].short_name;
-  } catch (error) {
-    console.log(`Error when getCurrentPosition : ${error}`);
+  // Location.setApiKey(config.DEV.GOOGLE_API_KEY);
+  let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  if (status !== 'granted') {
+    return 'Permission to access location was denied'
   }
+  let location = await Location.getCurrentPositionAsync({
+    enableHighAccuracy : false,
+    maximumAge: 0
+  });
+  let {latitude, longitude} = location.coords;
+  let position = await Location.reverseGeocodeAsync(
+    {
+      latitude : latitude,
+      longitude : longitude
+    }
+  );
+  return position[0].city
 }
 
 export default getPosition;
