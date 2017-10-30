@@ -17,7 +17,7 @@ export default class App extends React.Component {
 
   render() {
     if (this.state.login) {
-      return <Tabs />
+      return <Tabs screenProps={this.setLogin.bind(this)}/>
     } else {
       return <Register screenProps={this.setLogin.bind(this)}/>
     }

@@ -76,7 +76,7 @@ export const Tabs = TabNavigator({
 
 export const Register = StackNavigator({
   Login: {
-    screen: Login,
+    screen: Login
   },
   SingUp: {
     screen: SingUp
