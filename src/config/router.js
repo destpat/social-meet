@@ -1,12 +1,13 @@
 import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import { Icon } from 'react-native-elements';
+import { Icon, Button } from 'react-native-elements';
 
 import MyProfile from '../scenes/MyProfile';
 import NewUser from '../scenes/NewUser';
 import Search from '../scenes/Search';
 import UserProfile from '../scenes/UserProfile';
 import SearchResult from '../scenes/SearchResult';
+import Settings from '../scenes/Settings';
 
 import Login from '../scenes/Login';
 import SingUp from '../scenes/SingUp';
@@ -61,14 +62,25 @@ export const Tabs = TabNavigator({
     screen: StackNavigator({
       MyProfile: {
         screen: MyProfile,
+        navigationOptions: ({navigation}) => ({
+          headerTitle: 'Profil',
+          headerRight: (
+            <Icon
+              name='settings'
+              onPress={() => navigation.navigate('Settings')} />
+          )
+        })
+      },
+      Settings: {
+        screen: Settings,
         navigationOptions: {
-          headerTitle: 'Profil'
+          headerTitle: 'Settings',
         }
       }
     }),
     navigationOptions: {
       tabBarLabel: 'Profil'
-    }
+    },
   },
 }, {
   tabBarPosition: 'bottom',

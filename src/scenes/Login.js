@@ -54,7 +54,7 @@ export default class Login extends React.Component {
           <View>
           <FormLabel labelStyle={loginStyle.input}>Email</FormLabel>
           <FormInput inputStyle={loginStyle.input}
-          onChangeText={(email) => this.setState({email})}/>
+                     onChangeText={(email) => this.setState({email})}/>
 
           <FormLabel labelStyle={loginStyle.input}>Password</FormLabel>
           <FormInput inputStyle={loginStyle.input}
