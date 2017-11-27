@@ -3,7 +3,6 @@ import { Text, View, Image, StyleSheet, Dimensions, TouchableHighlight, FlatList
 import { fakeUser } from '../data/fakeUser';
 import userListStyle from '../style/listUserStyle'
 
-
 export class UserList extends React.Component {
   render() {
     return (

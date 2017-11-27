@@ -2,18 +2,18 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import { fakeUser } from '../data/fakeUser';
 import { UserCard } from '../component/UserCard';
-import getNewUsers from '../utils/getNewUsers'
+import getNewUsersList from '../utils/getNewUsersList'
 
-export default class newUser extends React.Component {
+export default class newUsers extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newUser: null
+      newUsers: null
     }
   }
   componentDidMount() {
-    getNewUsers().then((data) => {
-      this.setState({newUser: data});
+    getNewUsersList().then((data) => {
+      this.setState({newUsers: data});
     })
   }
   render() {
@@ -21,7 +21,7 @@ export default class newUser extends React.Component {
       <View style={{alignItems: 'center'}}>
         <FlatList
           numColumns={2}
-          data={this.state.newUser}
+          data={this.state.newUsers}
           renderItem={({item}) => <UserCard user={item} navigation={this.props.navigation}/>}
           keyExtractor={(item, index) => item._id}
         />

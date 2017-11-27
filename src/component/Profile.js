@@ -23,7 +23,7 @@ export default class Profile extends React.Component {
 
   componentDidMount() {
     console.log('is mount');
-    if (this.props.from === 'newUser') {
+    if (this.props.from === 'newUsers') {
       getUser(this.props.userId).then((data) => {
         data.birthDate = moment().diff(data.birthDate, 'years').toString();
         this.setState({userInformation: data});

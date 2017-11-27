@@ -3,7 +3,7 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 import { Icon, Button } from 'react-native-elements';
 
 import MyProfile from '../scenes/MyProfile';
-import NewUser from '../scenes/NewUser';
+import newUsers from '../scenes/NewUsers';
 import Search from '../scenes/Search';
 import UserProfile from '../scenes/UserProfile';
 import SearchResult from '../scenes/SearchResult';
@@ -14,10 +14,10 @@ import SingUp from '../scenes/SingUp';
 
 
 export const Tabs = TabNavigator({
-  NewUser: {
+  newUsers: {
     screen: StackNavigator({
-      NewUser: {
-        screen: NewUser,
+      newUsers: {
+        screen: newUsers,
         navigationOptions: {
           headerTitle: 'Nouveauté'
         }
