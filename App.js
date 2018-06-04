@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, KeyboardAvoidingView } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements'
-import { Tabs, Register } from './src/config/router';
+import { Tabs, SingUp } from './src/config/router';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export default class App extends React.Component {
     if (this.state.login) {
       return <Tabs screenProps={this.setLogin.bind(this)}/>
     } else {
-      return <Register screenProps={this.setLogin.bind(this)}/>
+      return <SingUp screenProps={this.setLogin.bind(this)}/>
     }
   }
 }

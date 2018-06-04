@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
-const userCardStyle = StyleSheet.create({
+const userCardVerticalStyle = StyleSheet.create({
   cardContainer: {
     width: Dimensions.get('window').width / 2 - 20,
     alignItems: 'center',
@@ -18,4 +18,4 @@ const userCardStyle = StyleSheet.create({
   }
 });
 
-export default userCardStyle;
+export default userCardVerticalStyle;

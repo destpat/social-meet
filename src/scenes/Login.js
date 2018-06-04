@@ -7,7 +7,7 @@ import getToken from '../utils/getToken.js';
 import checkTokenValidity from '../utils/checkTokenValidity'
 import loginStyle from '../style/loginStyle';
 import { AsyncStorage } from 'react-native';
-import storeToken from '../utils/storeToken'
+import storeToken from '../utils/storeToken';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -58,30 +58,31 @@ export default class Login extends React.Component {
 
           <FormLabel labelStyle={loginStyle.input}>Password</FormLabel>
           <FormInput inputStyle={loginStyle.input}
-          secureTextEntry
-          onChangeText={(password) => this.setState({password})}/>
-          {
-            this.state.errorMessage !== '' &&
-            <FormValidationMessage labelStyle={loginStyle.errorMessage}>
-            {this.state.errorMessage}
-            </FormValidationMessage>
-          }
-          </View>
-          <Button iconLeft
-          buttonStyle={loginStyle.button}
-          title='LOGIN'
-          onPress={ async () => {
-            this.resetErrorMessage();
-            try {
-              let authorization = await getAutorization(this.state.email, this.state.password);
-              await storeToken(authorization.data.token);
-              this.props.screenProps(authorization.data.auth);
-            } catch (error) {
-              console.log(error);
-              this.errorMessage(error.response.data.message);
+            secureTextEntry
+            onChangeText={(password) => this.setState({password})}/>
+            {
+              this.state.errorMessage !== '' &&
+              <FormValidationMessage labelStyle={loginStyle.errorMessage}>
+              {this.state.errorMessage}
+              </FormValidationMessage>
             }
+          </View>
+          <Button
+            iconLeft
+            buttonStyle={loginStyle.button}
+            title='LOGIN'
+            onPress={ async () => {
+              this.resetErrorMessage();
+              try {
+                let authorization = await getAutorization(this.state.email, this.state.password);
+                await storeToken(authorization.data.token);
+                this.props.screenProps(authorization.data.auth);
+              } catch (error) {
+                console.log(error);
+                this.errorMessage(error.response.data.message);
+              }
           }}/>
-          <TouchableHighlight onPress={() => this.props.navigation.navigate('SingUp')}>
+          <TouchableHighlight onPress={() => this.props.navigation.navigate('Register')}>
           <Text style={loginStyle.register}>Register now</Text>
           </TouchableHighlight>
         </KeyboardAvoidingView>

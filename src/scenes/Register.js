@@ -3,8 +3,8 @@ import { KeyboardAvoidingView } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 import createUser from '../utils/createUser';
 
-// @Todo custom style
-export default class SingUp extends React.Component {
+// @TODO custom style
+export default class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +17,6 @@ export default class SingUp extends React.Component {
   }
   render() {
     let formValid = false;
-
     return (
       <KeyboardAvoidingView>
 

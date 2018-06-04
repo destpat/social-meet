@@ -1,12 +1,12 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { UserList } from '../component/UserList';
+import { UserCardHorizontal } from '../component/UserCardHorizontal';
 
 export default class UserProfile extends React.Component {
   render() {
     return (
       <ScrollView>
-          <UserList navigation={this.props.navigation} />
+          <UserCardHorizontal navigation={this.props.navigation} />
       </ScrollView>
     );
   }

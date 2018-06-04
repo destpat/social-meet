@@ -10,7 +10,7 @@ import SearchResult from '../scenes/SearchResult';
 import Settings from '../scenes/Settings';
 
 import Login from '../scenes/Login';
-import SingUp from '../scenes/SingUp';
+import Register from '../scenes/Register';
 
 
 export const Tabs = createBottomTabNavigator({
@@ -86,11 +86,11 @@ export const Tabs = createBottomTabNavigator({
   tabBarPosition: 'bottom',
 });
 
-export const Register = createStackNavigator({
+export const SingUp = createStackNavigator({
   Login: {
     screen: Login
   },
-  SingUp: {
-    screen: SingUp
+  Register: {
+    screen: Register
   }
 })

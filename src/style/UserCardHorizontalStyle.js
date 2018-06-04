@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-const userListStyle = StyleSheet.create({
+const UserCardHorizontalStyle = StyleSheet.create({
   listContainer: {
     flexDirection: 'row',
     backgroundColor: "#ffffff",
@@ -17,4 +17,4 @@ const userListStyle = StyleSheet.create({
   }
 });
 
-export default userListStyle;
+export default UserCardHorizontalStyle;

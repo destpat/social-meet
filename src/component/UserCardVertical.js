@@ -1,16 +1,15 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, TouchableHighlight } from 'react-native';
-import userCardStyle from '../style/userCardStyle';
+import userCardVerticalStyle from '../style/userCardVerticalStyle';
 
-export class UserCard extends React.Component {
+export class UserCardVertical extends React.Component {
   render() {
     return (
-      // implemented with Text and Button as children
       <TouchableHighlight
         onPress={() => this.props.navigation.navigate('UserProfile', { user: this.props.user })}>
-        <View style={userCardStyle.cardContainer}>
+        <View style={userCardVerticalStyle.cardContainer}>
           <Image source={{uri: this.props.user.photo}}
-                 style={userCardStyle.image}/>
+                 style={userCardVerticalStyle.image}/>
           <Text>{this.props.user.snapchat}</Text>
         </View>
      </TouchableHighlight>
