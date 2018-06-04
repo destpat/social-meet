@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Icon, Button } from 'react-native-elements';
 
 import MyProfile from '../scenes/MyProfile';
@@ -13,9 +13,9 @@ import Login from '../scenes/Login';
 import SingUp from '../scenes/SingUp';
 
 
-export const Tabs = TabNavigator({
+export const Tabs = createBottomTabNavigator({
   newUsers: {
-    screen: StackNavigator({
+    screen: createStackNavigator({
       newUsers: {
         screen: newUsers,
         navigationOptions: {
@@ -34,7 +34,7 @@ export const Tabs = TabNavigator({
     }
   },
   Search: {
-    screen: StackNavigator({
+    screen: createStackNavigator({
       Search: {
         screen: Search,
         navigationOptions: {
@@ -59,7 +59,7 @@ export const Tabs = TabNavigator({
     }
   },
   MyProfile: {
-    screen: StackNavigator({
+    screen: createStackNavigator({
       MyProfile: {
         screen: MyProfile,
         navigationOptions: ({navigation}) => ({
@@ -86,7 +86,7 @@ export const Tabs = TabNavigator({
   tabBarPosition: 'bottom',
 });
 
-export const Register = StackNavigator({
+export const Register = createStackNavigator({
   Login: {
     screen: Login
   },
