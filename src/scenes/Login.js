@@ -38,8 +38,8 @@ export default class Login extends React.Component {
         this.setState({displayLoader : false});
         this.props.screenProps(tokenValidity.data.auth);
       }, 1500);
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error.response.data);
       setTimeout(() => {
       this.setState({displayLoader : false});
       }, 1500);
