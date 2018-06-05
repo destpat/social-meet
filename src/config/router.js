@@ -50,7 +50,7 @@ export const Tabs = createBottomTabNavigator({
       UserProfile: {
         screen: UserProfile,
         navigationOptions: ({navigation}) => ({
-          headerTitle: `${navigation.state.params.user.name.first} ${navigation.state.params.user.name.last}`,
+          headerTitle: `${navigation.state.params.user.instagram}`,
         }),
       }
     }),

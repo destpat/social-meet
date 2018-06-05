@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
-import { fakeUser } from '../data/fakeUser';
 import { UserCardVertical } from '../component/UserCardVertical';
 import getNewUsersList from '../utils/getNewUsersList'
 
