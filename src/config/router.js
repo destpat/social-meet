@@ -86,7 +86,7 @@ export const Tabs = createBottomTabNavigator({
   tabBarPosition: 'bottom',
 });
 
-export const SingUp = createStackNavigator({
+export const Connection = createStackNavigator({
   Login: {
     screen: Login
   },

@@ -1,9 +1,8 @@
-import config from '../../config.json'
+import config from '../../config.json';
 import axiosAutorizationHeader from '../config/interceptor';
+import getToken from '../utils/getToken';
 
 const checkTokenValidity = async () => {
-  let validityToken = axiosAutorizationHeader.post(`${config.DEV.BASE_URL}/api/auth/verify-token`);
-  return validityToken;
+  return axiosAutorizationHeader.post(`${config.DEV.BASE_URL}/api/auth/verify-token`)
 }
-
 export default checkTokenValidity;

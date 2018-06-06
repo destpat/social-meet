@@ -4,7 +4,7 @@ import updateProfile from '../utils/updateProfile';
 import getMyProfile from '../utils/getMyProfile';
 
 import { Text, View} from 'react-native';
-import { Button, FormLabel, FormInput } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 
 export default class MyProfile extends React.Component {
   constructor(props) {
@@ -16,6 +16,14 @@ export default class MyProfile extends React.Component {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>SETTINGS</Text>
         <Text>This page is under construction</Text>
+        <Button
+          style={{marginTop: 30}}
+          title='LOGOUT'
+          onPress={() => {
+            logout().then((res) => {
+              this.props.screenProps();
+            });
+          }}/>
       </View>
     );
   }

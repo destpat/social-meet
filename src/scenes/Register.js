@@ -43,7 +43,7 @@ export default class Register extends React.Component {
            title='VALIDATE'
            onPress={() => {
              createUser(this.state).then((auth) => {
-              this.props.screenProps(auth);
+               console.log('create user');
              });
            }}/>
 
