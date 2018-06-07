@@ -15,7 +15,7 @@ export default class Profile extends React.Component {
         instagram: '--',
         origin: '--',
         eyesColor: '--',
-        sexe: '--',
+        sex: '--',
         birthDate: '--'
       }
     }
@@ -38,7 +38,7 @@ export default class Profile extends React.Component {
   }
 
   render() {
-    const {photo, snapchat, instagram, sexe, origin, eyesColor, birthDate} = this.state.userInformation;
+    const {photo, snapchat, instagram, sex, origin, eyesColor, birthDate} = this.state.userInformation;
     return (
       <ScrollView>
         <Tile
@@ -61,7 +61,7 @@ export default class Profile extends React.Component {
           <ListItem
             hideChevron
             title='Sex'
-            rightTitle={sexe}
+            rightTitle={sex}
           />
           <ListItem
             hideChevron

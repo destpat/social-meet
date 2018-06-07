@@ -32,7 +32,7 @@ export default class App extends React.Component {
         })
         .catch((error) => {
           this.setState({displayLoader: false});
-          console.error(error);
+          console.error(error.response.data.message);
         })
       } else {
         this.setState({
