@@ -1,30 +1,69 @@
 import React from 'react';
 import logout from '../utils/logout';
-import updateProfile from '../utils/updateProfile';
+import putProfile from '../utils/putProfile';
 import getMyProfile from '../utils/getMyProfile';
 
-import { Text, View} from 'react-native';
-import { Button } from 'react-native-elements';
+import { Text, View, KeyboardAvoidingView } from 'react-native';
+import { Button, FormLabel, FormInput } from 'react-native-elements';
 
-export default class MyProfile extends React.Component {
+export default class Settings extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      instagram: '',
+      snapchat: '',
+      sex: '',
+      origin: '',
+      eyesColor: '',
+      birthDate: ''
+    }
   }
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>SETTINGS</Text>
-        <Text>This page is under construction</Text>
+      <KeyboardAvoidingView>
+
+        <FormLabel>instagram</FormLabel>
+        <FormInput onChangeText={(instagram) => this.setState({instagram})}/>
+
+        <FormLabel>snapchat</FormLabel>
+        <FormInput onChangeText={(snapchat) => this.setState({snapchat})}/>
+
+        <FormLabel>Sex</FormLabel>
+        <FormInput onChangeText={(sex) => this.setState({sex})}/>
+
+        <FormLabel>Orgine</FormLabel>
+        <FormInput onChangeText={(origin) => this.setState({origin})}/>
+
+        <FormLabel>Eyes colors</FormLabel>
+        <FormInput onChangeText={(eyesColor) => this.setState({eyesColor})}/>
+
+        <FormLabel>Age</FormLabel>
+        <FormInput onChangeText={(birthDate) => this.setState({birthDate})}/>
+
         <Button
-          style={{marginTop: 30}}
+          style={{marginTop: 80}}
+          title='UPDATE'
+          backgroundColor='#3498DB'
+          onPress={() => {
+            putProfile(this.state).then((res) => {
+              console.log(res.data);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+          }}/>
+
+        <Button
+          style={{marginTop: 10}}
           title='LOGOUT'
+          backgroundColor='#E74C3C'
           onPress={() => {
             logout().then((res) => {
               this.props.screenProps();
             });
           }}/>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
