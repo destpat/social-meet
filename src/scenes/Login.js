@@ -31,7 +31,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <KeyboardAvoidingView behavior='padding' style={loginStyle.container}>
-        <Text style={loginStyle.title}>Curly</Text>
+        <Text style={loginStyle.title}>Nelly</Text>
         <View>
         <FormLabel labelStyle={loginStyle.input}>Email</FormLabel>
         <FormInput inputStyle={loginStyle.input}

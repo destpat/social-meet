@@ -30,6 +30,7 @@ export default class Profile extends React.Component {
     } else if (this.props.from === 'myProfile') {
       getMyProfile().then((data) => {
         data.birthDate = moment().diff(data.birthDate, 'years').toString();
+        console.log(data.birthDate);
         this.setState({userInformation: data});
       })
     } else {
@@ -38,12 +39,12 @@ export default class Profile extends React.Component {
   }
 
   render() {
-    const {photo, snapchat, instagram, sex, origin, eyesColor, birthDate} = this.state.userInformation;
+    const { photo, snapchat, instagram, sex, origin, eyesColor, birthDate } = this.state.userInformation;
     return (
       <ScrollView>
         <Tile
            imageSrc={{uri : photo}}
-           title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+           title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores exercitationem"
            featured
            caption="Some Caption Text"
         />
